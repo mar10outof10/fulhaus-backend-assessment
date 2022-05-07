@@ -5,4 +5,4 @@ const AcronymSchema = mongoose.Schema({
   definition: String
 });
 
-module.exports = mongoose.model('Note', NoteSchema);
+module.exports = mongoose.model('Acronym', AcronymSchema);
