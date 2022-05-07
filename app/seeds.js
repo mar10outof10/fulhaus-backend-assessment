@@ -64,6 +64,58 @@ const seedAcronyms = [
     acronym: "BOOMS",
     definition: "Bored out of my skull"
   },
+  {
+    acronym: "DDG",
+    definition: "Drop dead gorgeous"
+  },
+  {
+    acronym: "DGA",
+    definition: "Don't go anywhere"
+  },
+  {
+    acronym: "GMV",
+    definition: "Got my vote"
+  },
+  {
+    acronym: "GN",
+    definition: "Good night"
+  },
+  {
+    acronym: "GNA",
+    definition: "Good night all"
+  },
+  {
+    acronym: "GNE1",
+    definition: "Good night everyone"
+  },
+  {
+    acronym: "GOAT",
+    definition: "Greatest of all time"
+  },
+  {
+    acronym: "GOMB",
+    definition: "Get off my back"
+  },
+  {
+    acronym: "QOTD",
+    definition: "Quote of the day"
+  },
+  {
+    acronym: "RSS",
+    definition: "Rich site summary"
+  },
+  {
+    acronym: "RT",
+    definition: "Real time"
+  },
+  {
+    acronym: "RT",
+    definition: "Roger that"
+  },
+  {
+    acronym: "RTMS",
+    definition: "Read the manual silly"
+  },
 ]
 
 const seedDB = async () => {
