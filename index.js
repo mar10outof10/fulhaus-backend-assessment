@@ -19,23 +19,8 @@ mongoose.connect(dbConfig.url, {
   process.exit();
 });
 
-app.get("/acronym", (req, res) => {
-  page = req.query.page;
-  limit = req.query.limit;
-  search = req.query.search;
-})
-
-app.post("/acronym", (req, res) => {
-  
-})
-
-app.patch("/acronym/:acronymID", (req, res) => {
-  const acronymID = req.params.acronymID;
-})
-
-app.delete("/acronym/:acronymID", (req, res) => {
-  const acronymID = req.params.acronymID;
-})
+//Require routes
+require('./app/routes/acronym.routes.js')(app);
 
 app.listen(3000, () => {
   console.log("API Server running on port 3000!");
