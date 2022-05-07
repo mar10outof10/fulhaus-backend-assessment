@@ -9,20 +9,15 @@ exports.get = (req, res) => {
   const search = req.query.search ? (
     new RegExp(escapeRegex(req.query.search), 'gi')
   ) : (
-    '*'
+    /.*/
   );
-
-  console.log(page, limit, skip, search);
 
   Acronym.find({$or: [
     {acronym: search},
     {definition: search}
-  ]}).skip(skip).limit(limit).exec()
-  .then(acronyms => {
-    console.log(acronyms);
-    res.send(acronyms)
-  }).catch(err =>{
-    console.log(err);
+  ]}).skip(skip).limit(limit).exec((err, acronyms) => {
+    if (err) return next(err);
+    res.json(acronyms);
   })
 }
 
