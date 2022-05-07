@@ -65,5 +65,23 @@ exports.patch = (req, res) => {
 exports.delete = (req, res) => {
   const acronymID = req.params.acronymID;
 
+  Acronym.findByIdAndRemove(acronymID)
+  .then(acronym => {
+      if(!acronym) {
+          return res.status(404).send({
+              message: `No acronym with ${acronymID} found`
+          });
+      }
+      res.send({message: "Acronym deleted!"});
+  }).catch(err => {
+      if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+          return res.status(404).send({
+              message: `No acronym with ${acronymID} found`
+          });                
+      }
+      return res.status(500).send({
+          message: `Error deleting acronym at ${acronymID}`
+      });
+  });
 }
 
