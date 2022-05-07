@@ -16,7 +16,9 @@ exports.get = (req, res) => {
     {acronym: search},
     {definition: search}
   ]}).skip(skip).limit(limit).exec((err, acronyms) => {
-    if (err) return next(err);
+    if (err) return res.status(400).send({
+      message: `400 Bad Request`
+    });
     res.json(acronyms);
   })
 }
