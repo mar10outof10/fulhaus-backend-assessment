@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const acronyms = require('../controllers/acronym.controller.js');
+  const acronym = require('../controllers/acronym.controller.js');
 
   app.get("/acronym", acronym.get)
   
@@ -8,5 +8,4 @@ module.exports = (app) => {
   app.patch("/acronym/:acronymID", acronym.patch)
   
   app.delete("/acronym/:acronymID", acronym.delete)
-  app.get()
 }

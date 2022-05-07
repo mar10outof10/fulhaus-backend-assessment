@@ -4,8 +4,8 @@ exports.get = (req, res) => {
 
   page = req.query.page || 1;
   limit = req.query.limit || 10;
-  skip = page * limit;
-  search = req.query.search || null;
+  skip = (page - 1) * limit;
+  search = req.query.search || "*";
 
   Acronym.find({$or: [
     {acronym: search},
