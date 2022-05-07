@@ -4,9 +4,18 @@ exports.get = (req, res) => {
 
   page = req.query.page || 1;
   limit = req.query.limit || 10;
+  skip = page * limit;
   search = req.query.search || null;
 
-
+  Acronym.find({$or: [
+    {acronym: search},
+    {definition: search}
+  ]}).skip(skip).limit(limit)
+  .then(acronyms => {
+    res.send(acronyms)
+  }).catch(err =>{
+    console.log(err);
+  })
 }
 
 exports.post = (req, res) => {
