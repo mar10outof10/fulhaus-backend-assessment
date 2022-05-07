@@ -1,12 +1,11 @@
 # Fulhaus Backend Tech Assessment by Martin Halas
-
-## Acronym CRUD API
+Acronym CRUD API
 
 ## Scripts
-### npm run start
+# npm run start
 Starts app on localhost:3000
 
-### npm run seed
+# npm run seed
 Seeds DB with seed data. Deletes existing data.
 
 ## API
