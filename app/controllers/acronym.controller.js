@@ -1,17 +1,25 @@
 const Acronym = require('../models/acronym.model.js');
 
-exports.get = (req, res) => {
+const escapeRegex = (text) => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 
-  page = req.query.page || 1;
-  limit = req.query.limit || 10;
-  skip = (page - 1) * limit;
-  search = req.query.search || "*";
+exports.get = (req, res) => {
+  const page = req.query.page || 1;
+  const limit = req.query.limit || 10;
+  const skip = (page - 1) * limit;
+  const search = req.query.search ? (
+    new RegExp(escapeRegex(req.query.search), 'gi')
+  ) : (
+    '*'
+  );
+
+  console.log(page, limit, skip, search);
 
   Acronym.find({$or: [
     {acronym: search},
     {definition: search}
-  ]}).skip(skip).limit(limit)
+  ]}).skip(skip).limit(limit).exec()
   .then(acronyms => {
+    console.log(acronyms);
     res.send(acronyms)
   }).catch(err =>{
     console.log(err);
